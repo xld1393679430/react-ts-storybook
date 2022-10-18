@@ -1,6 +1,6 @@
-// describe("测试Demo", function() {
-
-// })
+/**
+ * 执行 npx jest ./test/demo_1.test
+ */
 
 test("第一个测试 toBe", function () {
   expect(1 + 1).toBe(2);
