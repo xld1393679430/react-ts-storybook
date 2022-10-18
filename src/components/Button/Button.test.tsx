@@ -1,14 +1,28 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import Button from "./index";
+import { render, screen, fireEvent } from "@testing-library/react";
+import Button, { ButtonProps, ButtonSize, ButtonType } from "./index";
+
+const defaultProps = {
+  onClick: jest.fn(),
+};
+
+const testProps: ButtonProps = {
+  btnType: ButtonType.primary,
+  size: ButtonSize.large,
+  className: "custom-class",
+};
 
 describe("测试Button组件", function () {
   it("测试Button组件是否能渲染", function () {
-    render(<Button data-testid="aa">Nice</Button>);
+    render(
+      <Button data-testid="btn1" {...defaultProps}>
+        Nice
+      </Button>
+    );
 
-    const element = screen.getByTestId("aa");
+    const element = screen.getByTestId("btn1");
     // 检查Button是否存在Document上
     expect(element).toBeInTheDocument();
 
@@ -23,5 +37,42 @@ describe("测试Button组件", function () {
 
     // 检测Button组件是否有默认的class
     expect(element).toHaveClass("btn btn-default");
+
+    // 检测Button按钮的点击事件
+    fireEvent.click(element);
+    expect(defaultProps.onClick).toHaveBeenCalled();
+  });
+
+  it("测试Button组件的自定义属性", function () {
+    render(
+      <Button data-testid="btn2" {...testProps}>
+        Nice
+      </Button>
+    );
+
+    const element = screen.getByTestId("btn2");
+
+    // 检测Button按钮的btnType是否是ButtonType.primary
+    expect(element).toHaveClass("btn-primary");
+
+    // 检测Button按钮的size是否是ButtonSize.large
+    expect(element).toHaveClass("btn-lg");
+
+    // 检测Button按钮的是否有追加的classNames
+    expect(element).toHaveClass("custom-class");
+  });
+
+  it("测试Button组件btnType=ButtonType.link时显示为a标签", function () {
+    render(
+      <Button data-testid="btn3" btnType={ButtonType.link} href="www.test.com">
+        Link
+      </Button>
+    );
+
+    const element = screen.getByTestId("btn3");
+    expect(element).toBeInTheDocument();
+
+    expect(element.tagName).toEqual("A");
+    expect(element).toHaveClass("btn-link");
   });
 });
