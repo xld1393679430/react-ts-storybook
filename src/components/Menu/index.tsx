@@ -12,7 +12,7 @@ export interface BaseMenuProps {
   onSelect?: SelectCallback;
 }
 
-type MenuProps = BaseMenuProps & React.HTMLAttributes<HTMLElement>;
+export type MenuProps = BaseMenuProps & React.HTMLAttributes<HTMLElement>;
 
 interface IMenuContext {
   index: number;
