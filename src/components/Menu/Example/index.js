@@ -11,25 +11,19 @@ const Index = () => {
           // alert(`Menu ${index}`);
         }}
       >
-        <MenuItem index={0} data-desc="MenuItem">
-          Menu1
-        </MenuItem>
-        <MenuItem index={1}>Menu2</MenuItem>
-        <MenuItem index={2} disabled>
-          Menu3
-        </MenuItem>
-        <MenuItem index={3}>Menu4</MenuItem>
+        <MenuItem data-desc="MenuItem">Menu1</MenuItem>
+        <MenuItem>Menu2</MenuItem>
+        <MenuItem disabled>Menu3</MenuItem>
+        <MenuItem>Menu4</MenuItem>
       </Menu>
 
       <Menu defaultIndex={1} data-desc="Menu" mode="vertical">
-        <MenuItem index={0} data-desc="MenuItem">
-          Menu1
-        </MenuItem>
-        <MenuItem index={1}>Menu2</MenuItem>
-        <MenuItem index={2} disabled>
-          Menu3
-        </MenuItem>
-        <MenuItem index={3}>Menu4</MenuItem>
+        <MenuItem data-desc="MenuItem">Menu1</MenuItem>
+        <MenuItem>Menu2</MenuItem>
+        <MenuItem disabled>Menu3</MenuItem>
+        <MenuItem>Menu4</MenuItem>
+        {/* 这里控制台会有报错。 */}
+        <div>222</div>
       </Menu>
     </>
   );

@@ -3,13 +3,13 @@ import classNames from "classnames";
 import { MenuContext } from "..";
 
 export interface BaseMenuItemProps {
-  index: number;
+  index?: number;
   disabled?: boolean;
   className?: string;
   style?: string;
 }
 
-type MenuItemProps = BaseMenuItemProps & React.HTMLAttributes<HTMLElement>;
+export type MenuItemProps = BaseMenuItemProps & React.HTMLAttributes<HTMLElement>;
 
 const Index: React.FC<MenuItemProps> = (props) => {
   const { children, index, disabled, className, style, ...rest } = props;
@@ -20,18 +20,19 @@ const Index: React.FC<MenuItemProps> = (props) => {
   });
 
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
+    if (context.onSelect && !disabled && typeof index === "number") {
       context.onSelect(index);
     }
   };
 
   return (
-    <li className={classes} style={style} onClick={handleClick} {...rest}>
+    <li className={classes} style={style} data-menu-item-index={index} onClick={handleClick} {...rest}>
       {children}
     </li>
   );
 };
 
 Index.defaultProps = {};
+Index.displayName = "MenuItem"; // chrome-devtool可以正确显示组件的名字
 
 export default Index;

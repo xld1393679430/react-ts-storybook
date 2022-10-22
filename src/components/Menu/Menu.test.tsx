@@ -22,11 +22,12 @@ const testVerticalProps: MenuProps = {
 const TestMenu = (props: MenuProps) => {
   return (
     <Menu {...props} data-testid="test-menu">
-      <MenuItem index={0}>active</MenuItem>
-      <MenuItem index={1} disabled>
+      <MenuItem>active</MenuItem>
+      <MenuItem disabled>
         disabled
       </MenuItem>
-      <MenuItem index={2}>xyz</MenuItem>
+      <MenuItem>xyz</MenuItem>
+      <div>这里报错：Warning: Menu has a child which is not a MenuItem </div>
     </Menu>
   );
 };

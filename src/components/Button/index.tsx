@@ -50,6 +50,7 @@ const Index: FC<ButtonProps> = ({ children, className, disabled, size, btnType, 
   );
 };
 
+Index.displayName = "Button"
 Index.defaultProps = {
   disabled: false,
   btnType: ButtonType.default,
