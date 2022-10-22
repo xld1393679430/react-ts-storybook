@@ -3,7 +3,7 @@ import { TestDemos, ButtonExample, MenuExample } from "./components/Examples";
 
 function App() {
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 60 }}>
       <h1>App</h1>
 
       <hr />
