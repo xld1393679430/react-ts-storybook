@@ -19,7 +19,6 @@ interface BaseButtonProps {
   size?: ButtonSize;
   btnType?: ButtonType;
   href?: string;
-  children: React.ReactNode;
 }
 
 //类型为 button类型包括自定义 + 原生button类型
