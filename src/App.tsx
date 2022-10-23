@@ -1,5 +1,5 @@
 import React from "react";
-import { TestDemos, ButtonExample, MenuExample } from "./components/Examples";
+import { TestDemos, ButtonExample, MenuExample, IconExample } from "./components/Examples";
 
 function App() {
   return (
@@ -14,6 +14,9 @@ function App() {
 
       <hr />
       <MenuExample />
+
+      <hr />
+      <IconExample />
     </div>
   );
 }
