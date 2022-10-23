@@ -1,17 +1,9 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-export enum ButtonSize {
-  large = "lg",
-  small = "sm",
-}
+export type ButtonSize = "lg" | "sm";
 
-export enum ButtonType {
-  primary = "primary",
-  danger = "danger",
-  link = "link",
-  default = "default",
-}
+export type ButtonType = "primary" | "danger" | "link" | "default";
 
 interface BaseButtonProps {
   className?: string;
@@ -33,10 +25,10 @@ const Index: FC<ButtonProps> = ({ children, className, disabled, size, btnType, 
   const classes = classNames("btn", className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    disabled: btnType === ButtonType.link && disabled,
+    disabled: btnType === "link" && disabled,
   });
 
-  if (btnType === ButtonType.link && href) {
+  if (btnType === "link" && href) {
     return (
       <a href={href} className={classes} {...rest}>
         {children}
@@ -50,10 +42,10 @@ const Index: FC<ButtonProps> = ({ children, className, disabled, size, btnType, 
   );
 };
 
-Index.displayName = "Button"
+Index.displayName = "Button";
 Index.defaultProps = {
   disabled: false,
-  btnType: ButtonType.default,
+  btnType: "default",
 };
 
 export default Index;

@@ -1,16 +1,15 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Button, { ButtonProps, ButtonSize, ButtonType } from "./index";
+import Button, { ButtonProps } from "./index";
 
 const defaultProps = {
   onClick: jest.fn(),
 };
 
 const testProps: ButtonProps = {
-  btnType: ButtonType.primary,
-  size: ButtonSize.large,
+  btnType: "primary",
+  size: "lg",
   className: "custom-class",
 };
 
@@ -52,7 +51,7 @@ describe("测试Button组件", function () {
 
     const element = screen.getByTestId("btn2");
 
-    // 检测Button按钮的btnType是否是ButtonType.primary
+    // 检测Button按钮的btnType是否是primary
     expect(element).toHaveClass("btn-primary");
 
     // 检测Button按钮的size是否是ButtonSize.large
@@ -62,9 +61,9 @@ describe("测试Button组件", function () {
     expect(element).toHaveClass("custom-class");
   });
 
-  it("测试Button组件btnType=ButtonType.link时显示为a标签", function () {
+  it("测试Button组件btnType=link时显示为a标签", function () {
     render(
-      <Button data-testid="btn3" btnType={ButtonType.link} href="www.test.com">
+      <Button data-testid="btn3" btnType={"link"} href="www.test.com">
         Link
       </Button>
     );

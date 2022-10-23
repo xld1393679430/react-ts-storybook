@@ -1,4 +1,4 @@
-import Button, { ButtonType, ButtonSize } from "../index";
+import Button from "../index";
 
 const Index = () => {
   return (
@@ -10,18 +10,18 @@ const Index = () => {
           primary 2
         </Button> */}
 
-      <Button btnType={ButtonType.primary} size={ButtonSize.large}>
+      <Button btnType="primary" size="lg">
         primary 2
       </Button>
-      <Button btnType={ButtonType.primary} disabled>
+      <Button btnType="primary" disabled>
         primary 2
       </Button>
 
-      <Button btnType={ButtonType.link} size={ButtonSize.large} href="https://www.baidu.com" disabled>
+      <Button btnType="link" size="lg" href="https://www.baidu.com" disabled>
         link
       </Button>
 
-      <Button btnType={ButtonType.link} href="https://www.baidu.com" disabled>
+      <Button btnType="link" href="https://www.baidu.com" disabled>
         link
       </Button>
     </div>
