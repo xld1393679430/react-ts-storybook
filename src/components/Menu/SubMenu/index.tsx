@@ -1,8 +1,10 @@
 import React, { memo, useCallback, useContext, useMemo, useRef, useState } from "react";
 import classNames from "classnames";
+import { CSSTransition } from "react-transition-group";
 import { MenuContext } from "../index";
 import { MenuItemProps } from "../MenuItem";
 import Icon from "../../Icon";
+import Transition from '../../Transition'
 
 export interface BaseSubMenuProps {
   index?: string;
@@ -76,7 +78,13 @@ const Index: React.FC<SubMenuProps> = memo(({ index, title, className, children,
         console.error("[SubMenu] Warning: Menu has a child which is not a MenuItem");
       }
     });
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+
+    // appear: 使组件第一次显示也出现动画
+    return (
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top" >
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
+    );
   }, [children, index, menuOpen]);
 
   return (
