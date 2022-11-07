@@ -1,7 +1,14 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-export type ButtonSize = "lg" | "sm";
+// enum ButtonSizeEnum {
+//   lg = "lg",
+//   sm = "sm",
+//   md = "md"
+// }
+// export type ButtonSize = keyof typeof ButtonSizeEnum;
+
+export type ButtonSize = "lg" | "sm"
 
 export type ButtonType = "primary" | "danger" | "link" | "default";
 
