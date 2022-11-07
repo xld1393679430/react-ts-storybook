@@ -39,3 +39,6 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+export const Test = Template.bind({});
+Test.storyName = "中文名"
